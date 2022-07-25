@@ -8,7 +8,8 @@ Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti
 Dokumentaation kieli: Suomi
 
 Ohjelmointikieli: Java
-Voin vertaiarvioida myös Python/Fortran/C/C++:lla kirjoitettuja projekteja
+
+Voin vertaisarvioida myös Python/Fortran/C/C++:lla kirjoitettuja projekteja
 
 ### Syötteet: 
 
