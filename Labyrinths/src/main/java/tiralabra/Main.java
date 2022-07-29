@@ -1,9 +1,10 @@
-package Labyrinths;
+package tiralabra;
 
-import domain.Labyrinth;
+import tiralabra.domain.Labyrinth;
 import java.util.Scanner;
+
 /**
- *
+ * 
  * @author lbsarast
  */
 public class Main {

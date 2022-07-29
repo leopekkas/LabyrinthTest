@@ -54,7 +54,7 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'Labyrinths.Main'
+    mainClassName = 'tiralabra.Main'
 }
 
 checkstyle {

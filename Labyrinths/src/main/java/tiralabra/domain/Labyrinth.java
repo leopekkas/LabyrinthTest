@@ -1,4 +1,4 @@
-package domain;
+package tiralabra.domain;
 
 /**
  * Class for the labyrinth, contains information 
@@ -14,6 +14,12 @@ public class Labyrinth {
     
     private int[][] maze;
     
+    /**
+     * Labyrinth constructor
+     * 
+     * @param height Height of the labyrinth
+     * @param width  Width of the labyrinth
+     */
     public Labyrinth(int height, int width) {
         this.height = height;
         this.width = width;
@@ -40,7 +46,7 @@ public class Labyrinth {
         System.out.println("");
         
         for (int i = 0; i < this.height; i++) {
-            for (int j = -1; j < this.width+1; j++) {
+            for (int j = -1; j < this.width + 1; j++) {
                 if (j == this.width || j == -1) {
                     System.out.print("|");
                 } else {
@@ -60,5 +66,13 @@ public class Labyrinth {
         for (int i = 0; i < this.width; i++) {
             System.out.print("_");
         }
+    }
+    
+    public int getWidth() {
+        return this.width;
+    }
+    
+    public int getHeight() {
+        return this.height;
     }
 }
