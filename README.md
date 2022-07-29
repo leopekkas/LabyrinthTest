@@ -1,7 +1,8 @@
 # LabyrinthTest
 Helsingin Yliopiston "Tietorakenteet ja Algoritmit -labratyö" kurssin projektikansio
 
-[Määrittelydokumentti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/maarittelydokumentti.md)
+[Määrittelydokumentti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/maarittelydokumentti.md)  
+[(TODO) Testikattavuusraportti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/testikattavuus.md)
 
 ## Käyttöohje
 
@@ -19,6 +20,5 @@ Ohjelma pyytää käyttäjältä generoitavan labyrintin koon kokonaislukusyött
 
 ## Viikkoraportit
 
-[Viikkoraportti 1](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_1.md)
-
+[Viikkoraportti 1](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_1.md)  
 [Viikkoraportti 2](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_2.md)
