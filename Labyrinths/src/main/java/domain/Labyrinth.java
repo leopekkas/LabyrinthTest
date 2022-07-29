@@ -1,12 +1,14 @@
 package domain;
 
 /**
- *
+ * Class for the labyrinth, contains information 
+ * on the labyrinth height & width
+ * 
  * @author lbsarast
  */
 
-// 2D maze skeleton, filled with zeros
 public class Labyrinth {
+    
     final int height;
     final int width;
     
@@ -27,6 +29,9 @@ public class Labyrinth {
         
     }
     
+    /**
+     * Printing function for the maze
+     */
     public void printLabyrinth() {
         for (int i = 0; i < this.width; i++) {
             System.out.print("_");

@@ -1,16 +1,65 @@
-apply plugin: 'jacoco'
-apply plugin: 'java'
+plugins {
 
-jacoco {
-    toolVersion = "0.7.6.201602180812"
-    reportsDir = file("$buildDir/reports/jacoco")
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building a CLI application
+    id 'application'
+
+    id 'jacoco'
+
+    id 'checkstyle'
 }
 
 jacocoTestReport {
-    group = "Reporting"
     reports {
         xml.enabled true
-        csv.enabled false
-        html.destination "${buildDir}/reports/coverage"
+        html.enabled true
+    }
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'Labyrinths/Main*')
+        }))
     }
 }
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
+}
+
+run {
+   standardInput = System.in
+}
+
+dependencies {
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:28.0-jre'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+
+    implementation 'com.github.bhlangonijr:chesslib:1.1.12'
+}
+
+application {
+    // Define the main class for the application
+    mainClassName = 'Labyrinths.Main'
+}
+
+checkstyle {
+    toolVersion '8.17'
+}
+
+check.dependsOn jacocoTestReport
+build.dependsOn javadoc

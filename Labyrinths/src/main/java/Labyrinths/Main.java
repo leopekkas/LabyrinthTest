@@ -8,7 +8,11 @@ import java.util.Scanner;
  */
 public class Main {
 
-    
+    /**
+     * Main function
+     * 
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         
