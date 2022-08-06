@@ -25,7 +25,7 @@ public class Main {
             
             testilabbis.printLabyrinth();
         } catch (Exception e) {
-            System.out.println("Virhe syötteessä");
+            System.out.println("Virhe syötteessä: " + e);
         }
     }
     

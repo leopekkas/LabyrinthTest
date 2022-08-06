@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package tiralabra.domain;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import tiralabra.domain.Labyrinth;
+import tiralabra.domain.Cell;
 
 /**
  * Testing for the Labyrinth class
@@ -17,7 +19,14 @@ import tiralabra.domain.Labyrinth;
  */
 public class LabyrinthTest {
     
+    private Labyrinth lab;
+    
     public LabyrinthTest() {
+    }
+    
+    @Before
+    public void setUp() {
+        lab = new Labyrinth(5, 5);
     }
 
     /**
@@ -25,10 +34,26 @@ public class LabyrinthTest {
      */
     @Test
     public void testLabyrinthConstructor() {
-        int y = 0;
-        int x = 0;
-        Labyrinth lab = new Labyrinth(5, 5);
         System.out.println("Labyrinth width: " + lab.getWidth());
         assertEquals(lab.getWidth(), 5);
+    }
+    
+    /**
+     * Test the createExit -function
+     */
+    @Test
+    public void testCreateExit() {
+        Labyrinth exitlab = new Labyrinth(5, 5);
+        Cell[][] maze = exitlab.getMaze();
+        boolean[] exitCellWalls = maze[4][4].getWalls();
+               
+        assertEquals(exitCellWalls[0], true);
+        assertEquals(exitCellWalls[1], true);
+        
+        exitlab.createExit();        
+        exitCellWalls = maze[4][4].getWalls();
+        
+        assertEquals(exitCellWalls[0], true);
+        assertEquals(exitCellWalls[1], false);
     }
 }
