@@ -1,7 +1,7 @@
 # Testikattavuusraportti
 
-![Ohjelma-alueen testikattavuus](img/labyrinths_testikattavuus)  
-![Domainin testikattavuus](img/domain_testikattavuus)  
+![Ohjelma-alueen testikattavuus](img/labyrinths_testikattavuus.png)  
+![Domainin testikattavuus](img/domain_testikattavuus.png)  
 
 ## JUnit testaus
 
