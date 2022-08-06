@@ -18,3 +18,5 @@ Labyrintin koko
 ### Aika- ja tilavaativuus
 
 ### Lähteet:
+
+[Wilsonin algoritmi](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)
