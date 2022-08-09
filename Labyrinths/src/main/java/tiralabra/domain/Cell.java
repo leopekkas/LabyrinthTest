@@ -66,11 +66,11 @@ public class Cell {
     
     /**
      * 
-     * @param index index of the wall we want to change
+     * @param dir dir of the wall we want to change
      * @param value true or false, wall or not
      */
-    public void setWalls(int index, boolean value) {
-        this.walls[index] = value;
+    public void setWalls(int dir, boolean value) {
+        this.walls[dir] = value;
     }
     
     /**

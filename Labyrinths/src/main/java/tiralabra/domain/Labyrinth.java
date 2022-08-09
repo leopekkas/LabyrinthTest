@@ -1,5 +1,6 @@
 package tiralabra.domain;
 
+import java.util.Random;
 /**
  * Class for the labyrinth, contains information 
  * on the labyrinth height and width
@@ -31,6 +32,38 @@ public class Labyrinth {
             }
         }
         
+    }
+    
+    /**
+     * Runs the sidewinder -algorithm for this labyrinth 
+     */
+    public void sideWinder() {
+        createExit();
+        Random random = new Random();
+
+        for (int i = 0; i < this.height; i++) {
+            // Initial cell in this runset
+            int initialCell = 0;
+
+            for (int j = 0; j < this.width; j++) {
+                int dir = random.nextInt(2);
+                // Continue either downwards (0) or right (1) depending on random chance and if we're on a border
+                if (i > 0 && (j + 1 == this.width || dir == 0)) {
+                    // Remove the "upper" wall of a random square in this runset
+                    int randomRemove = random.nextInt(j - initialCell + 1);
+                    // Remove the wall over this square (so the downwards wall of the Cell over us)
+                    Cell chosen = this.maze[i - 1][initialCell + randomRemove];
+                    chosen.setWalls(0, false);
+                    initialCell = j + 1;
+
+                } else if (j + 1 < this.width) {
+                    // Remove the rightmost wall and go right
+                    Cell current = this.maze[i][j];
+                    current.setWalls(1, false);
+                }
+            }
+        }
+
     }
     
     /**
