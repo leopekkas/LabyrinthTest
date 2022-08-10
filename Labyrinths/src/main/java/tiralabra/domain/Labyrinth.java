@@ -1,6 +1,10 @@
 package tiralabra.domain;
 
+import java.util.ArrayList;
 import java.util.Random;
+
+import tiralabra.util.CellDir;
+
 /**
  * Class for the labyrinth, contains information 
  * on the labyrinth height and width
@@ -64,6 +68,38 @@ public class Labyrinth {
             }
         }
 
+    }
+    
+    /**
+     * Returns the neighboring cells for this cell in a list
+     *
+     * @param current Current cell
+     * @return An ArrayList of the neighboring cells
+     */
+    public ArrayList<CellDir> getNeighbors(Cell current) {
+        ArrayList<CellDir> neighbors = new ArrayList<>();
+        
+        // Has a top neighbor
+        if (current.getY() - 1 >= 0) {
+            neighbors.add(new CellDir(this.maze[current.getY() - 1][current.getX()], 3));
+
+        }
+        // Has a bottom neighbor
+        if (current.getY() + 1 < this.width) {
+            neighbors.add(new CellDir(this.maze[current.getY() + 1][current.getX()], 1));
+        }
+            
+        // Has a left neighbor
+        if (current.getX() - 1 >= 0) {
+            neighbors.add(new CellDir(this.maze[current.getY()][current.getX() - 1], 0));
+        }
+        
+        // Has a right neighbor
+        if (current.getX() + 1 < this.width) {
+            neighbors.add(new CellDir(this.maze[current.getY()][current.getX() + 1], 2));
+        }
+
+        return neighbors;
     }
     
     /**

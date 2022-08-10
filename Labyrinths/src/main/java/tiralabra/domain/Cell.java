@@ -31,6 +31,7 @@ public class Cell {
             System.out.println("Error: Initializing a cell with negative coordinates, exiting");
             return;
         }
+        // Initialize two walls, over this cell and on its right side
         this.walls = new boolean[2];
         for (int i = 0; i < this.walls.length; i++) {
             this.walls[i] = true;
