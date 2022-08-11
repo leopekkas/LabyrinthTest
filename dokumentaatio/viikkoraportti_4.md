@@ -1,6 +1,6 @@
 # Viikkoraportti 4
 
-Neljännellä viikolla jatkoin wilsonin algoritmin kehittämistä ja loin wilsonin algoritmin 
+Neljännellä viikolla jatkoin wilsonin algoritmin kehittämistä (valmis, mutta jokin bugi vielä koodissa) ja loin wilsonin algoritmin 
 implementaatiota varten apuluokan ja funktioita. 
 
 Laajennettu testaamista, sidewinderin testaus niin, että jokaisessa labyrintin 
