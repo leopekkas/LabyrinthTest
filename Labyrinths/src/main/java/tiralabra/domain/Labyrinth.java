@@ -104,6 +104,105 @@ public class Labyrinth {
     }
     
     /**
+     * Runs Wilson's algorithm for this labyrinth
+     */
+    public void wilsonsAlgorithm() {
+        createExit();
+        
+        // Save number where we move to corresponding to cells
+        int path[][] = new int[this.height][this.width];
+        Boolean visited[][] = new Boolean[this.height][this.width];
+        
+        for (int i = 0; i < this.height; i++) { // alustetaan polku- ja kaytytaulukot.
+            for (int j = 0; j < this.width; j++) {
+                path[i][j] = -1;
+                visited[i][j] = false;
+            }
+        }
+        
+        Random rand = new Random();
+        
+        // "Move" to a random cell and start the algorithm from there
+        Cell start = this.maze[rand.nextInt(this.height)][rand.nextInt(this.width)];
+        Cell currentCell = start;
+        
+        visited[start.getY()][start.getX()] = true;
+        
+        // How many we've visited
+        int nvisited = 0;
+        int total = this.height * this.width - 1;
+        
+        // !TODO risk of infinite loop
+        while (nvisited < total) {
+            boolean tovisit = false;
+            // Choose a new cell by random from where to make a path
+            while (!tovisit) { 
+                currentCell = this.maze[rand.nextInt(this.height)][rand.nextInt(this.width)];
+                start = currentCell;
+                if (!visited[currentCell.getY()][currentCell.getX()]) {
+                    tovisit = true;
+                }
+            }
+        
+            // Check your neighbors, move to one of them and make a path
+            // Until you encounter a cell we've visited already
+            while (true) {
+                ArrayList<CellDir> neighbors = getNeighbors(currentCell);
+                CellDir randomCellDir = neighbors.get(rand.nextInt(neighbors.size()));
+                Cell randCell = randomCellDir.getCell();
+                int direction = randomCellDir.getDir();
+
+                path[currentCell.getY()][currentCell.getX()] = direction;
+
+                currentCell = randCell;
+
+                // Break if we hit a cell we've been to
+                if (visited[currentCell.getY()][currentCell.getX()]) {
+                    break;
+                }
+            }
+        
+            Cell next = start;
+
+            // Move through the paths from the start and remove walls to build the maze.
+            while (true) {
+                int direction = path[next.getY()][next.getX()];
+
+                // Move "left"
+                if (direction == 0) {
+                    this.maze[next.getY()][next.getX() - 1].setWalls(1, false);
+                    visited[next.getY()][next.getX()] = true;
+                    nvisited++;
+                    next = this.maze[next.getY()][next.getX() - 1];
+                // Move "down"    
+                } else if (direction == 1) {
+                    this.maze[next.getY()][next.getX()].setWalls(0, false);
+                    visited[next.getY()][next.getX()] = true;
+                    nvisited++;
+                    next = this.maze[next.getY() + 1][next.getX()];
+                // Move "right"
+                } else if (direction == 2) {
+                    this.maze[next.getY()][next.getX()].setWalls(1, false);
+                    visited[next.getY()][next.getX()] = true;
+                    nvisited++;
+                    next = this.maze[next.getY()][next.getX() + 1];
+                // Move "up"
+                } else if (direction == 3) {
+                    this.maze[next.getY() - 1][next.getX()].setWalls(0, false);
+                    visited[next.getY()][next.getX()] = true;
+                    nvisited++;
+                    next = this.maze[next.getY() - 1][next.getX()];
+                }  
+                
+                // Break when encountering an already visited cell
+                if (visited[next.getY()][next.getX()]) {
+                    break;
+                }
+            }
+        }    
+    }
+    
+    /**
      * Printing function for the maze
      */
     public void printLabyrinth() {

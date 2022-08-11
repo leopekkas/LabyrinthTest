@@ -27,6 +27,10 @@ public class Main {
             System.out.println("Printing out the labyrinth format:\n");
             testilabbis.printLabyrinth();
             
+            // ----------------------------------------------
+            // Sidewinder
+            // ----------------------------------------------
+            
             System.out.println("\n--------------------------------\n");
             System.out.println("Executing the sidewinder algorithm to generate a maze");
             System.out.println("\n--------------------------------\n");
@@ -48,6 +52,42 @@ public class Main {
             
             System.out.println("Time taken (nanoseconds):  " + end);
             System.out.println("Time taken (milliseconds): " + endmilli);
+            
+            // ----------------------------------------------
+            // Sidewinder (end)
+            // ----------------------------------------------
+            
+            // ----------------------------------------------
+            // Wilson's Algorithm
+            // ----------------------------------------------
+            
+            System.out.println("\n--------------------------------\n");
+            System.out.println("Executing Wilson's Algorithm to generate a maze");
+            System.out.println("\n--------------------------------\n");
+            
+            Labyrinth testwilsons = new Labyrinth(size, size);
+            
+            startmilli = System.currentTimeMillis();
+            start = System.nanoTime();
+            
+            testwilsons.wilsonsAlgorithm();
+            
+            // System calls 
+            end = System.nanoTime() - start;
+            endmilli = System.currentTimeMillis() - startmilli;
+            
+            System.out.println("Maze after executing Wilson's: ");
+            
+            testwilsons.printLabyrinth();
+            
+            System.out.println("\n--------------------------------\n");
+            
+            System.out.println("Time taken (nanoseconds):  " + end);
+            System.out.println("Time taken (milliseconds): " + endmilli);
+            
+            // ----------------------------------------------
+            // Wilsons's Algorithm (end)
+            // ----------------------------------------------
             
             System.out.println("Bye bye ...");
         } catch (Exception e) {
