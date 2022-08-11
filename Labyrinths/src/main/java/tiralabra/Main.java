@@ -1,7 +1,9 @@
 package tiralabra;
 
-import tiralabra.domain.Labyrinth;
 import java.util.Scanner;
+
+import tiralabra.domain.Labyrinth;
+
 
 /**
  * 

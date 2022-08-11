@@ -17,24 +17,32 @@ import tiralabra.domain.Cell;
  */
 public class CellDir {
     
-    private Cell c;
+    private Cell cellEntry;
     private Integer dir;
     
     /**
      * Constructor
      * 
-     * @param c Cell
+     * @param cellEntry Cell
      * @param dir Direction we come from
      */
-    public CellDir(Cell c, Integer dir) {
-        this.c = c;
+    public CellDir(Cell cellEntry, Integer dir) {
+        this.cellEntry = cellEntry;
         this.dir = dir;
     }
     
+    /**
+     * 
+     * @return Cell
+     */
     public Cell getCell() {
-        return this.c;
+        return this.cellEntry;
     }
     
+    /**
+     * 
+     * @return Direction we come from 
+     */
     public Integer getDir() {
         return this.dir;
     }

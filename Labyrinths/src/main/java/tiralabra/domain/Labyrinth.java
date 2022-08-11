@@ -51,7 +51,8 @@ public class Labyrinth {
 
             for (int j = 0; j < this.width; j++) {
                 int dir = random.nextInt(2);
-                // Continue either downwards (0) or right (1) depending on random chance and if we're on a border
+                // Continue either downwards (0) or right (1) depending 
+                // on random chance and if we're on a border
                 if (i > 0 && (j + 1 == this.width || dir == 0)) {
                     // Remove the "upper" wall of a random square in this runset
                     int randomRemove = random.nextInt(j - initialCell + 1);
@@ -145,14 +146,26 @@ public class Labyrinth {
         exit.setWalls(1, false);
     }
     
+    /**
+     * 
+     * @return Labyrinth width
+     */
     public int getWidth() {
         return this.width;
     }
     
+    /**
+     * 
+     * @return Labyrinth height
+     */
     public int getHeight() {
         return this.height;
     }
     
+    /**
+     * 
+     * @return Cells in this labyrinth 
+     */
     public Cell[][] getMaze() {
         return this.maze;
     }

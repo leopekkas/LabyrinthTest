@@ -3,30 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package tiralabra.domain;
 
 /**
- * Represents a single cell or a "square" insided the labyrinth
+ * Represents a single cell or a "square" inside the labyrinth
  * 
  * @author lbsarast
  */
 public class Cell {
    
-   private int x;
-   private int y;
+    private int x;
+    private int y;
    
-   /**
-    * Path we can move to, from top-down, or left-right
-    */
-   private boolean[] walls;
+    /**
+     * Path we can move to, from top-down, or left-right
+     */
+    private boolean[] walls;
    
-   /**
-    * Creates a new cell with two walls surrounding it
-    * 
-    * @param x x-coordinate inside maze
-    * @param y y-coordinate inside maze
-    */
-   public Cell(int x, int y) {
+    /**
+     * Creates a new cell with two walls surrounding it
+     * 
+     * @param x x-coordinate inside maze
+     * @param y y-coordinate inside maze
+     */
+    public Cell(int x, int y) {
         if (x < 0 || y < 0) {
             System.out.println("Error: Initializing a cell with negative coordinates, exiting");
             return;
@@ -39,9 +40,9 @@ public class Cell {
         
         this.x = x;
         this.y = y;
-   }
+    }
    
-   /**
+    /**
      *
      * @return Return cell x-coordinate
      */
