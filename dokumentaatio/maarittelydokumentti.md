@@ -23,5 +23,7 @@ Sidewinder algoritmi on aikavaativuudeltaan $O(n^2)$
 
 ### Lähteet:
 
-[Wilsonin algoritmi](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)
-[Sidewinder](https://weblog.jamisbuck.org/2011/2/3/maze-generation-sidewinder-algorithm.html)
+[Maze Generation Algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Maze_generation_algorithm)  
+[Wilsonin algoritmi](https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm)  
+[Sidewinder](https://weblog.jamisbuck.org/2011/2/3/maze-generation-sidewinder-algorithm.html)  
+
