@@ -24,13 +24,13 @@ Ohjelma pyytää käyttäjältä generoitavan labyrintin koon kokonaislukusyött
 Projekti luo `gradle build` komennon yhteydessä olennaiset dokumentit seuraaville poluille: 
 
 Javadoc:  
-`/LabyrinthTest/Labyrinths/build/docs/javadoc/index.html`  
+`LabyrinthTest/Labyrinths/build/docs/javadoc/index.html`  
 
 Testikattavuusraportti:  
 `LabyrinthTest/Labyrinths/build/reports/jacoco/test/html/index.html` 
 
 Testien tulokset:  
-`/LabyrinthTest/Labyrinths/build/reports/tests/test/index.html`
+`LabyrinthTest/Labyrinths/build/reports/tests/test/index.html`
 
 
 ## Viikkoraportit
