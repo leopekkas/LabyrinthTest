@@ -23,7 +23,7 @@ public class Main {
         
         try {
             int size = Integer.valueOf(reader.nextLine());
-            Labyrinth testilabbis = new Labyrinth(size, size);
+            Labyrinth testilabbis = new Labyrinth(size);
             System.out.println("Printing out the labyrinth format:\n");
             testilabbis.printLabyrinth();
             
@@ -65,7 +65,7 @@ public class Main {
             System.out.println("Executing Wilson's Algorithm to generate a maze");
             System.out.println("\n--------------------------------\n");
             
-            Labyrinth testwilsons = new Labyrinth(size, size);
+            Labyrinth testwilsons = new Labyrinth(size);
             
             startmilli = System.currentTimeMillis();
             start = System.nanoTime();

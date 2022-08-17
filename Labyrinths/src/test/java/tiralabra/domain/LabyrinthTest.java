@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import tiralabra.domain.Labyrinth;
 import tiralabra.domain.Cell;
+import tiralabra.util.List;
 
 /**
  * Testing for the Labyrinth class
@@ -29,7 +30,7 @@ public class LabyrinthTest {
     
     @Before
     public void setUp() {
-        lab = new Labyrinth(5, 5);
+        lab = new Labyrinth(5);
     }
 
     /**
@@ -46,7 +47,7 @@ public class LabyrinthTest {
      */
     @Test
     public void testCreateExit() {
-        Labyrinth exitlab = new Labyrinth(5, 5);
+        Labyrinth exitlab = new Labyrinth(5);
         Cell[][] maze = exitlab.getMaze();
         boolean[] exitCellWalls = maze[4][4].getWalls();
                
@@ -66,10 +67,9 @@ public class LabyrinthTest {
      */
     @Test
     public void testSideWinder() {
-        int testheight = 20;
-        int testwidth = 20;
+        int testspan = 20;
         
-        Labyrinth swlab = new Labyrinth(testheight, testwidth);
+        Labyrinth swlab = new Labyrinth(testspan);
         Cell[][] cells = swlab.getMaze();
         swlab.sideWinder();
         
@@ -86,13 +86,11 @@ public class LabyrinthTest {
             }
         }
         
-        ArrayList<Cell> mazeCells = new ArrayList<>();
+        List<Cell> mazeCells = new List<>();
         
         mazeCells.add(start);
-        while (!mazeCells.isEmpty()) {
-            Cell check = mazeCells.get(0);
-            mazeCells.remove(0);
-            mazeCells.trimToSize();
+        while (mazeCells.getSize() > 0) {
+            Cell check = mazeCells.pull();
             if (!visited[check.getY()][check.getX()]) {
                 visited[check.getY()][check.getX()] = true;
                 checked++;

@@ -1,9 +1,9 @@
 package tiralabra.domain;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import tiralabra.util.CellDir;
+import tiralabra.util.List;
 
 /**
  * Class for the labyrinth, contains information 
@@ -22,12 +22,11 @@ public class Labyrinth {
     /**
      * Labyrinth constructor
      * 
-     * @param height Height of the labyrinth
-     * @param width  Width of the labyrinth
+     * @param span
      */
-    public Labyrinth(int height, int width) {
-        this.height = height;
-        this.width = width;
+    public Labyrinth(int span) {
+        this.height = span;
+        this.width = span;
         
         this.maze = new Cell[height][width];
         for (int i = 0; i < width; i++) {
@@ -75,10 +74,10 @@ public class Labyrinth {
      * Returns the neighboring cells for this cell in a list
      *
      * @param current Current cell
-     * @return An ArrayList of the neighboring cells
+     * @return A List of the neighboring cells
      */
-    public ArrayList<CellDir> getNeighbors(Cell current) {
-        ArrayList<CellDir> neighbors = new ArrayList<>();
+    public List<CellDir> getNeighbors(Cell current) {
+        List<CellDir> neighbors = new List<>();
         
         // Has a top neighbor
         if (current.getY() - 1 >= 0) {
@@ -86,7 +85,7 @@ public class Labyrinth {
 
         }
         // Has a bottom neighbor
-        if (current.getY() + 1 < this.width) {
+        if (current.getY() + 1 < this.height) {
             neighbors.add(new CellDir(this.maze[current.getY() + 1][current.getX()], 1));
         }
             
@@ -113,7 +112,7 @@ public class Labyrinth {
         int path[][] = new int[this.height][this.width];
         Boolean visited[][] = new Boolean[this.height][this.width];
         
-        for (int i = 0; i < this.height; i++) { // alustetaan polku- ja kaytytaulukot.
+        for (int i = 0; i < this.height; i++) { 
             for (int j = 0; j < this.width; j++) {
                 path[i][j] = -1;
                 visited[i][j] = false;
@@ -128,12 +127,12 @@ public class Labyrinth {
         
         visited[start.getY()][start.getX()] = true;
         
-        // How many we've visited
-        int nvisited = 0;
         int total = this.height * this.width - 1;
+        // How many we've yet to visit
+        int left = total;
         
-        // !TODO risk of infinite loop
-        while (nvisited < total) {
+        // !TODO fix risk of infinite loop
+        while (left > 0) {
             boolean tovisit = false;
             // Choose a new cell by random from where to make a path
             while (!tovisit) { 
@@ -147,8 +146,8 @@ public class Labyrinth {
             // Check your neighbors, move to one of them and make a path
             // Until you encounter a cell we've visited already
             while (true) {
-                ArrayList<CellDir> neighbors = getNeighbors(currentCell);
-                CellDir randomCellDir = neighbors.get(rand.nextInt(neighbors.size()));
+                List<CellDir> neighbors = getNeighbors(currentCell);
+                CellDir randomCellDir = neighbors.getIndex(rand.nextInt(neighbors.getSize()));
                 Cell randCell = randomCellDir.getCell();
                 int direction = randomCellDir.getDir();
 
@@ -161,7 +160,7 @@ public class Labyrinth {
                     break;
                 }
             }
-        
+            
             Cell next = start;
 
             // Move through the paths from the start and remove walls to build the maze.
@@ -172,25 +171,25 @@ public class Labyrinth {
                 if (direction == 0) {
                     this.maze[next.getY()][next.getX() - 1].setWalls(1, false);
                     visited[next.getY()][next.getX()] = true;
-                    nvisited++;
+                    left--;
                     next = this.maze[next.getY()][next.getX() - 1];
                 // Move "down"    
                 } else if (direction == 1) {
                     this.maze[next.getY()][next.getX()].setWalls(0, false);
                     visited[next.getY()][next.getX()] = true;
-                    nvisited++;
+                    left--;
                     next = this.maze[next.getY() + 1][next.getX()];
                 // Move "right"
                 } else if (direction == 2) {
                     this.maze[next.getY()][next.getX()].setWalls(1, false);
                     visited[next.getY()][next.getX()] = true;
-                    nvisited++;
+                    left--;
                     next = this.maze[next.getY()][next.getX() + 1];
                 // Move "up"
                 } else if (direction == 3) {
                     this.maze[next.getY() - 1][next.getX()].setWalls(0, false);
                     visited[next.getY()][next.getX()] = true;
-                    nvisited++;
+                    left--;
                     next = this.maze[next.getY() - 1][next.getX()];
                 }  
                 
@@ -207,7 +206,7 @@ public class Labyrinth {
      */
     public void printLabyrinth() {
         System.out.println("");
-        for (int i = 0; i < this.width * 2 - 1; i++) {
+        for (int i = 0; i < this.width * 2; i++) {
             System.out.print("_");
         }
         // Formatting, artificial linebreak
@@ -225,13 +224,6 @@ public class Labyrinth {
                 c.printCell();
             }
             System.out.println("");
-        }
-        
-        // "Close" the bottom of the labyrinth
-        for (int i = 0; i < this.width * 2 - 1; i++) {
-            // Might not be portable, let's figure out something better
-            char overline = '\u203E';
-            System.out.print(overline);
         }
     }
     
