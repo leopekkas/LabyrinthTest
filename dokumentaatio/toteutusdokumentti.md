@@ -21,7 +21,7 @@ Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa, sekä
 
 Sidewinder on teoreettiselta aikavaativuudeltaan $O(n²)$
 
-Wilsonin algoritmi on teoreettiselta aikavaativuudeltaan $O(n^2)$
+Wilsonin algoritmi on teoreettiselta aikavaativuudeltaan $O(n^n)$
 
 
 ## Labyrinttien vertailu
