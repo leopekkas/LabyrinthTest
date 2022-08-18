@@ -15,4 +15,4 @@ sisältämistä tiedoista (koordinaatit, seinät) ja Labyrinth labyrinttien gene
 
 ### tiralabra.util
 
-Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa.
+Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa, sekä List -tietorakenteen, joka korvaa ArrayListin käytön.
