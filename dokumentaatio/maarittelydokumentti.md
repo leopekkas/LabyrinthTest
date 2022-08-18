@@ -13,9 +13,9 @@ Voin vertaisarvioida myös Python/Fortran/C/C++:lla kirjoitettuja projekteja
 
 ### Toteutettavat algoritmit ja tietorakenteet
 
-Sidewinder (algoritmi)
-Wilsonin algoritmi
-Lista (Javan ArrayListin vastine)
+Sidewinder (algoritmi)  
+Wilsonin algoritmi  
+Lista (Javan ArrayListin vastine)  
 
 
 ### Syötteet: 
