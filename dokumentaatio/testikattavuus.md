@@ -16,14 +16,14 @@ tarkoituksella testaamatta. Funktiot vastaavat käyttöliittymästä.
 ![Labyrinth-luokan testikattavuus](img/Labyrinth_luokka_kattavuus.png)
 
 ### Labyrinths.domain.Cell
-![Cell-luokan testikattavuus](imt/Cell_luokka_kattavuus.png)
+![Cell-luokan testikattavuus](img/Cell_luokka_kattavuus.png)
 
 
 ## Labyrinths.util
 
 ### Labyrinths.util.Cell
-![CellDir-luokan testikattavuus](imt/CellDir_luokka_kattavuus.png)
+![CellDir-luokan testikattavuus](img/CellDir_luokka_kattavuus.png)
 
 ### Labyrinths.domain.List
-![List-luokan testikattavuus](imt/List_luokka_kattavuus.png)
+![List-luokan testikattavuus](img/List_luokka_kattavuus.png)
 
