@@ -79,16 +79,11 @@ public class Labyrinth {
     public List<CellDir> getNeighbors(Cell current) {
         List<CellDir> neighbors = new List<>();
         
-        // Has a top neighbor
-        if (current.getY() - 1 >= 0) {
-            neighbors.add(new CellDir(this.maze[current.getY() - 1][current.getX()], 3));
-
-        }
         // Has a bottom neighbor
         if (current.getY() + 1 < this.height) {
             neighbors.add(new CellDir(this.maze[current.getY() + 1][current.getX()], 1));
         }
-            
+        
         // Has a left neighbor
         if (current.getX() - 1 >= 0) {
             neighbors.add(new CellDir(this.maze[current.getY()][current.getX() - 1], 0));
@@ -97,6 +92,12 @@ public class Labyrinth {
         // Has a right neighbor
         if (current.getX() + 1 < this.width) {
             neighbors.add(new CellDir(this.maze[current.getY()][current.getX() + 1], 2));
+        }
+        
+        // Has a top neighbor
+        if (current.getY() - 1 >= 0) {
+            neighbors.add(new CellDir(this.maze[current.getY() - 1][current.getX()], 3));
+
         }
 
         return neighbors;

@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import tiralabra.util.CellDir;
 import tiralabra.util.List;
 
 /**
@@ -121,5 +122,45 @@ public class LabyrinthTest {
         }
     
         //assertEquals(total, checked);
+    }
+    
+    /**
+     * Tests the getNeighbors method 
+     */
+    @Test
+    public void testGetNeighbors() {
+        
+        // Choose a cell somewhere in the middle so it has neighbors
+        // on all sides
+        Cell testCell = new Cell(3, 3);
+        
+        List<CellDir> testNeighbors  = lab.getNeighbors(testCell);
+        
+        List<CellDir> expected = new List<>();
+        expected.add(new CellDir(new Cell(4, 3), 1));
+        expected.add(new CellDir(new Cell(3, 2), 0));
+        expected.add(new CellDir(new Cell(3, 4), 2));
+        expected.add(new CellDir(new Cell(2, 3), 3));
+        
+        boolean containsbottom = testNeighbors.getIndex(0).getCell()
+                .compareTo(expected.getIndex(0).getCell());
+        
+        assertTrue(containsbottom);
+        
+        boolean containsleft = testNeighbors.getIndex(1).getCell()
+                .compareTo(expected.getIndex(1).getCell());
+        
+        assertTrue(containsleft);
+        
+        boolean containsright = testNeighbors.getIndex(2).getCell()
+                .compareTo(expected.getIndex(2).getCell());
+        
+        assertTrue(containsright);
+        
+        boolean containstop = testNeighbors.getIndex(3).getCell()
+                .compareTo(expected.getIndex(3).getCell());
+        
+        assertTrue(containstop);
+        
     }
 }
