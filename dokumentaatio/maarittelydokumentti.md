@@ -11,6 +11,13 @@ Ohjelmointikieli: Java
 
 Voin vertaisarvioida myös Python/Fortran/C/C++:lla kirjoitettuja projekteja
 
+### Toteutettavat algoritmit ja tietorakenteet
+
+Sidewinder (algoritmi)
+Wilsonin algoritmi
+Lista (Javan ArrayListin vastine)
+
+
 ### Syötteet: 
 
 Labyrintin koko N, joka luo N x N kokoisen labyrintin
@@ -20,6 +27,7 @@ Labyrintin koko N, joka luo N x N kokoisen labyrintin
 Aika- ja tilavaativuudet käydään tarkemmin läpi toteutusdokumentaatiossa ja algoritmien tehokkuustestauksessa  
 
 Sidewinder algoritmi on aikavaativuudeltaan $O(n^2)$
+Wilsonin algoritmin aikavaativuus $O(n^n)$
 
 ### Lähteet:
 
