@@ -6,9 +6,9 @@
 
 package tiralabra.domain;
 
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -16,14 +16,11 @@ import static org.junit.Assert.*;
  */
 public class CellTest {
     
-    private Cell c;
-    
-    public CellTest() {
-    }
+    private Cell testCell;
     
     @Before
     public void setUp() {
-        c = new Cell(6, 2);
+        testCell = new Cell(6, 2);
     }
     
     /**
@@ -31,14 +28,14 @@ public class CellTest {
      */
     @Test
     public void testSetWalls() {
-        c.setWalls(0, true);
-        c.setWalls(1, true);
-        boolean[] cellwalls = c.getWalls();
+        testCell.setWalls(0, true);
+        testCell.setWalls(1, true);
+        boolean[] cellwalls = testCell.getWalls();
         assertEquals(cellwalls[0], true);
         assertEquals(cellwalls[1], true);
        
-        c.setWalls(1, false);
-        cellwalls = c.getWalls();
+        testCell.setWalls(1, false);
+        cellwalls = testCell.getWalls();
         assertEquals(cellwalls[0], true);
         assertEquals(cellwalls[1], false);
     }
@@ -51,8 +48,8 @@ public class CellTest {
         Cell identical = new Cell(6, 2);
         Cell fake = new Cell(2, 6);
         
-        boolean compareIdentical = c.compareTo(identical);
-        boolean compareFake = c.compareTo(fake);
+        boolean compareIdentical = testCell.compareTo(identical);
+        boolean compareFake = testCell.compareTo(fake);
         
         assertEquals(true, compareIdentical);
         assertEquals(false, compareFake);

@@ -3,10 +3,27 @@
 Testikattavuusraportin voi luoda jacocon avulla ohjelman rakentamisen yhteydessä.
 Raportti ilmestyy polulle: `LabyrinthTest/Labyrinths/build/reports/jacoco/test/html/index.html`
 
-Testikattavuus pitäisi olla kattava, sillä ainoastaan käyttöliittymästä vastaavat printLabyrinth ja printCell funktiot jäävät testaamatta tällä hetkellä.
+Testikattavus valittaa etenkin `printCell()` ja `printLabyrinth()` funktioista, jotka jätin 
+tarkoituksella testaamatta. Funktiot vastaavat käyttöliittymästä.
 
-### Koko ohjelma-alueen testikattavuus
+## Koko ohjelma-alueen testikattavuus
 ![Ohjelma-alueen testikattavuus](img/labyrinths_kattavuus.png)
 
-### Labyrinths/Domain testikattavuus
-![Domainin testikattavuus](img/domain_testikattavuus.png)  
+
+## Labyrinths.domain
+
+### Labyrinths.domain.Labyrinth
+![Labyrinth-luokan testikattavuus](img/Labyrinth_luokka_kattavuus.png)
+
+### Labyrinths.domain.Cell
+![Cell-luokan testikattavuus](imt/Cell_luokka_kattavuus.png)
+
+
+## Labyrinths.util
+
+### Labyrinths.util.Cell
+![CellDir-luokan testikattavuus](imt/CellDir_luokka_kattavuus.png)
+
+### Labyrinths.domain.List
+![List-luokan testikattavuus](imt/List_luokka_kattavuus.png)
+

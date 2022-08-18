@@ -49,6 +49,12 @@ public class List<T> {
         this.size++;
     }
     
+    /**
+     * Returns the value at this index in the list
+     * 
+     * @param index 
+     * @return Value at this index in the list
+     */
     public T getIndex(int index) {        
         try {
             T value = this.values[index];
@@ -65,7 +71,7 @@ public class List<T> {
      *
      * @return First value in the list
      */
-    public T pull() {
+    public T pop() {
         T value = this.values[0];
         delete(value);
         return value;
@@ -107,6 +113,16 @@ public class List<T> {
         for (int i = index; i < this.size - 1; i++) {
             this.values[i] = this.values[i + 1];
         }
+    }
+    
+    /**
+     * Checks if the list contains this entry
+     * 
+     * @param entry Template entry
+     * @return True if contains
+     */
+    public boolean contains(T entry) {
+        return indexOfEntry(entry) != -1;
     }
     
     /**
