@@ -5,3 +5,5 @@ koitettu saada wilsonin algoritmia luomaan oikeanlaisia labyrinttejä (tällä h
 sekä selvitetty sidewinderin testien epäonnistumista
 
 Lisätty testejä List ja Labyrinth-luokalle.
+
+Lisätty käyttöliittymä sekä testeri-luokka auttamaan tehokkuustestejen suorittamista.

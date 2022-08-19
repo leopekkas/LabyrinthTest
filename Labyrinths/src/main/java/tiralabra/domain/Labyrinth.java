@@ -110,8 +110,8 @@ public class Labyrinth {
         createExit();
         
         // Save number where we move to corresponding to cells
-        int path[][] = new int[this.height][this.width];
-        Boolean visited[][] = new Boolean[this.height][this.width];
+        int [][]path = new int[this.height][this.width];
+        Boolean [][]visited = new Boolean[this.height][this.width];
         
         for (int i = 0; i < this.height; i++) { 
             for (int j = 0; j < this.width; j++) {
@@ -207,7 +207,7 @@ public class Labyrinth {
      */
     public void printLabyrinth() {
         System.out.println("");
-        for (int i = 0; i < this.width * 2; i++) {
+        for (int i = 0; i < this.width * 2 + 1; i++) {
             System.out.print("_");
         }
         // Formatting, artificial linebreak

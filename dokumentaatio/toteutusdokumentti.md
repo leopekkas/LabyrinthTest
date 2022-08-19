@@ -17,7 +17,21 @@ sisältämistä tiedoista (koordinaatit, seinät) ja Labyrinth labyrinttien gene
 
 Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa, sekä List -tietorakenteen, joka korvaa ArrayListin käytön.
 
+### tiralabra.testing
+
+Sisältää testausluokan Tester, joka avustaa tehokkuustestien kirjaamisessa. 
+Käytännössä käyttöliittymän jatkofunktio, joka myös vastaa käyttöliittymän tietojen
+kirjoittamisesta.
+
 ## Tehokkuustestit
+
+Ohjelman käyttöliittymä mahdollistaa tehokkuustestien suorittamisen ohjelman suorituksen aikana.
+Tehokkuustestauksesta vastaava luokka luo normaalitapauksessa 15 erisuuruista labyrinttia,
+testaa algoritmien suorituksen jokaisella 5 kertaa ja laskee keskiarvon suoritusajoista 
+jokaiselle erisuuruiselle labyrintille.
+
+Tester-luokka luo labyrinttien seinien pituudet (NxN) kaavalla $2 * (i + 1) * (i + 1)$,
+ jossa $1 <= i <= N$ ja $10 <= N <= 20$ riippuen testitapauksen laajuudesta. 
 
 Sidewinder on teoreettiselta aikavaativuudeltaan $O(n²)$
 

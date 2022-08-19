@@ -3,7 +3,7 @@ package tiralabra;
 import java.util.Scanner;
 
 import tiralabra.domain.Labyrinth;
-
+import tiralabra.testing.Tester;
 
 /**
  * 
@@ -17,82 +17,200 @@ public class Main {
      * @param args command line arguments
      */
     public static void main(String[] args) {
+        Tester testeri = new Tester();
+        
         Scanner reader = new Scanner(System.in);
+        System.out.println("Welcome! Here you can test out the Sidewinder algorithm"
+                    + " and Wilson's algorithm.");
+        while (true) {            
         
-        System.out.println("Labyrintin koko");
-        
+            System.out.println("\n============  Main Menu  ============");
+            System.out.println("Please type one of the following:");
+            System.out.println("          S : Run the sidewinder algorithm");
+            System.out.println("          W : Run Wilson's algorithm");
+            System.out.println("     SW | WS: Run both algorithms");
+            System.out.println("          T : Run performance tests for both algorithms");
+            System.out.println("         TL : Run limited performance tests");
+            System.out.println("<empty> | q : Quit the program");
+            System.out.println("=====================================");
+            
+            try {
+                String input = String.valueOf(reader.nextLine());
+                if (input.equalsIgnoreCase("S")) {
+                    execSidewinder();
+                } else if (input.equalsIgnoreCase("W")) {
+                    execWilsons();
+                } else if (input.equalsIgnoreCase("SW") || input.equalsIgnoreCase("WS")) {
+                    execDouble();
+                
+                // Improve to produce charts    
+                } else if (input.equalsIgnoreCase("T")) {
+                    System.out.println("Executing performance tests for the algorithms");
+                    execTests(15);                    
+                } else if (input.equalsIgnoreCase("TL")) {
+                    System.out.println("Executing limited performance tests for the algorithms");
+                    execTests(10);                    
+                } else if (input.equalsIgnoreCase("q") || input.equals("")) {
+                    System.out.println("Quitting ... ");
+                    System.out.println("Thank you for using the program!");
+                    break;
+                } else {
+                    System.out.println("Unknown input, try again");
+                }
+                
+                
+            } catch (Exception e) {
+                System.out.println("An unknown error occurred, quitting ...");
+            }
+        }
+    }
+    
+    /**
+     * Executes the sidewinder algorithm for a labyrinth of specified size
+     */
+    public static void execSidewinder() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please specify the span (NxN) of"
+                + " the maze as an integer");
         try {
-            int size = Integer.valueOf(reader.nextLine());
-            Labyrinth testilabbis = new Labyrinth(size);
+            int span = Integer.valueOf(reader.nextLine());                    
+        
+            Labyrinth swlab = new Labyrinth(span);
             System.out.println("Printing out the labyrinth format:\n");
-            testilabbis.printLabyrinth();
-            
-            // ----------------------------------------------
-            // Sidewinder
-            // ----------------------------------------------
-            
-            System.out.println("\n--------------------------------\n");
-            System.out.println("Executing the sidewinder algorithm to generate a maze");
-            System.out.println("\n--------------------------------\n");
-            
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n");
+
             long startmilli = System.currentTimeMillis();
             long start = System.nanoTime();
-            
-            testilabbis.sideWinder();
-            
+
+            swlab.sideWinder();
+
             // System calls 
             long end = System.nanoTime() - start;
             long endmilli = System.currentTimeMillis() - startmilli;
-            
+
             System.out.println("Maze after executing sidewinder: ");
-            
-            testilabbis.printLabyrinth();
-            
-            System.out.println("\n--------------------------------\n");
-            
-            System.out.println("Time taken (nanoseconds):  " + end);
+
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n"
+                    + "Time taken (nanoseconds):  " + end);
             System.out.println("Time taken (milliseconds): " + endmilli);
+        } catch (Exception e) {
+            System.out.println("An unknown error occurred, quitting ...");
+        }    
+    }
+    
+    /**
+     * Executes Wilson's algorithm for a labyrinth of specified size
+     */
+    public static void execWilsons() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please specify the span (NxN) of"
+                + " the maze as an integer");
+        try {
+            int span = Integer.valueOf(reader.nextLine());                    
+ 
+            Labyrinth swlab = new Labyrinth(span);
+            System.out.println("Printing out the labyrinth format:\n");
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n");
+
+            long startmilli = System.currentTimeMillis();
+            long start = System.nanoTime();
+
+            swlab.wilsonsAlgorithm();
+
+            // System calls 
+            long end = System.nanoTime() - start;
+            long endmilli = System.currentTimeMillis() - startmilli;
+
+            System.out.println("Maze after executing Wilson's algorithm: ");
+
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n"
+                    + "Time taken (nanoseconds):  " + end);
+            System.out.println("Time taken (milliseconds): " + endmilli);
+        } catch (Exception e) {
+            System.out.println("An unknown error occurred, quitting ...");
+        }
+    }
+    
+    /**
+     * Executes the sidewinder and Wilson's algorithm for a labyrinth of specified size
+     */
+    public static void execDouble() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please specify the span (NxN) of"
+                + " the maze as an integer");
+        try {
+            int span = Integer.valueOf(reader.nextLine());                    
+        
+            Labyrinth swlab = new Labyrinth(span);
+            System.out.println("Printing out the labyrinth format:\n");
+            swlab.printLabyrinth();
+
+            System.out.println("\n==============================\n");
+
+            long startmilli = System.currentTimeMillis();
+            long start = System.nanoTime();
+
+            swlab.sideWinder();
+
+            // System calls 
+            long end = System.nanoTime() - start;
+            long endmilli = System.currentTimeMillis() - startmilli;
+
+            System.out.println("Maze after executing sidewinder: ");
+
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n"
+                    + "Time taken (nanoseconds):  " + end);
+            System.out.println("Time taken (milliseconds): " + endmilli);
+        
+            // =========================================================
+            // Wilson time
+            // =========================================================
             
-            // ----------------------------------------------
-            // Sidewinder (end)
-            // ----------------------------------------------
+            // "Zero out" the maze in between
+            swlab = new Labyrinth(span);
             
-            // ----------------------------------------------
-            // Wilson's Algorithm
-            // ----------------------------------------------
-            
-            System.out.println("\n--------------------------------\n");
-            System.out.println("Executing Wilson's Algorithm to generate a maze");
-            System.out.println("\n--------------------------------\n");
-            
-            Labyrinth testwilsons = new Labyrinth(size);
-            
+            System.out.println("\n=====================================\n");
+
             startmilli = System.currentTimeMillis();
             start = System.nanoTime();
-            
-            testwilsons.wilsonsAlgorithm();
-            
+
+            swlab.wilsonsAlgorithm();
+
             // System calls 
             end = System.nanoTime() - start;
             endmilli = System.currentTimeMillis() - startmilli;
-            
-            System.out.println("Maze after executing Wilson's: ");
-            
-            testwilsons.printLabyrinth();
-            
-            System.out.println("\n--------------------------------\n");
-            
-            System.out.println("Time taken (nanoseconds):  " + end);
+
+            System.out.println("Maze after executing Wilson's algorithm: ");
+
+            swlab.printLabyrinth();
+
+            System.out.println("\n=====================================\n"
+                    + "Time taken (nanoseconds):  " + end);
             System.out.println("Time taken (milliseconds): " + endmilli);
-            
-            // ----------------------------------------------
-            // Wilsons's Algorithm (end)
-            // ----------------------------------------------
-            
-            System.out.println("Bye bye ...");
+        
         } catch (Exception e) {
-            System.out.println("Virhe syötteessä: " + e);
-        }
+            System.out.println("An unknown error occurred, quitting ...");
+        }    
+    }
+    
+    /**
+     * For executing performance tests for the algorithms
+     * @param scale Scale of the testing
+     */
+    public static void execTests(int scale) {
+        Tester labtester = new Tester();
+        labtester.testSidewinder(scale);
+        labtester.testWilsons(scale);        
     }
     
 }

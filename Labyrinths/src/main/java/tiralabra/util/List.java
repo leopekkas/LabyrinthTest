@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package tiralabra.util;
 
 /**
- * List design to replace the readymade ArrayList for the project
+ * List design to replace ArrayList for the project
  * 
  * @author lbsarast
  */
@@ -22,6 +23,9 @@ public class List<T> {
      */
     private T[] values;
     
+    /**
+     * Constructor
+     */
     public List() {
         this.size = 0;
         this.values = (T[]) new Object[10];
@@ -77,6 +81,10 @@ public class List<T> {
         return value;
     }
     
+    /**
+     * Deletes the specified object from the list
+     * @param value the object to be deleted
+     */
     public void delete(T value) {
         int index = indexOfEntry(value);
         if (index == -1) {
