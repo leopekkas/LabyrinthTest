@@ -28,14 +28,14 @@ kirjoittamisesta.
 Ohjelman käyttöliittymä mahdollistaa tehokkuustestien suorittamisen ohjelman suorituksen aikana.
 Tehokkuustestauksesta vastaava luokka luo normaalitapauksessa 15 erisuuruista labyrinttia,
 testaa algoritmien suorituksen jokaisella 5 kertaa ja laskee keskiarvon suoritusajoista 
-jokaiselle erisuuruiselle labyrintille.
+jokaiselle erisuuruiselle labyrintille
 
-Tester-luokka luo labyrinttien seinien pituudet (NxN) kaavalla $2 * (i + 1) * (i + 1)$,
- jossa $1 <= i <= N$ ja $10 <= N <= 20$ riippuen testitapauksen laajuudesta. 
+Tester-luokka luo labyrinttien seinien pituudet (NxN) kaavalla 
+$$2(i + 1)^2 \text{ , jossa  } 1 \le i \le N$$ ja $$10 \le N \le 20$$ riippuen testitapauksen laajuudesta 
 
-Sidewinder on teoreettiselta aikavaativuudeltaan $O(n²)$
 
-Wilsonin algoritmi on teoreettiselta aikavaativuudeltaan $O(n^n)$
+    Sidewinder on teoreettiselta aikavaativuudeltaan O(n²)
+    Wilsonin algoritmi on teoreettiselta aikavaativuudeltaan O(n^n)
 
 
 ## Labyrinttien vertailu
