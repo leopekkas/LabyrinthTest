@@ -47,6 +47,16 @@ dependencies {
     implementation 'com.github.bhlangonijr:chesslib:1.1.12'
 }
 
+jar {
+  manifest { 
+    attributes 'Main-Class': 'tiralabra.Main'
+  }  
+
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}
+
 application {
     // Define the main class for the application
     mainClassName = 'tiralabra.Main'
