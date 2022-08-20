@@ -16,7 +16,19 @@ testauttaa komennoilla:
     gradle test
 
 
-Ohjelma pyytää käyttäjältä generoitavan labyrintin koon kokonaislukusyötteenä 
+Ohjelma kysyy Menuruudussa syötteen käyttäjältä (case insensitive):
+
+
+              S : Run the sidewinder algorithm
+              W : Run Wilson's algorithm
+         SW | WS: Run both algorithms
+              T : Run performance tests for both algorithms
+             TL : Run limited performance tests
+    <empty> | q : Quit the program
+
+
+Valitun jälkeen ohjelma pyytää käyttäjältä generoitavan labyrintin kokoa (NxN) kokonaislukuna.
+Tehokkuustesteissä labyrintin kokoa ei erikseen pyydetä.
 
 
 ## Koodin katselmointi ja vertaisarviointi

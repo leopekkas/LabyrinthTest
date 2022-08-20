@@ -32,7 +32,7 @@ public class Tester {
      * 
      * @param scale Upper limit of the test cases
      */
-    public void testSidewinder(int scale) {
+    public void testSidewinder(int scale) { 
         if (scale > this.tests.length) {
             System.out.println("Scale of tests too large, Nullpointers would occur");
             return;
@@ -56,10 +56,13 @@ public class Tester {
             long avg = timings[timings.length / 2];
             System.out.println("Size " + this.tests[i] + " took " + avg 
                     + " milliseconds to compute");
+            
             if (i % 5 == 0) {
                 System.out.println("Timestep " + i + "/" + scale);
             }
         }
+        
+        System.out.println("Image Saved");
         
         System.out.println("\n--------------------------------\n");
         System.out.println("Sidewinder performance tests done");
