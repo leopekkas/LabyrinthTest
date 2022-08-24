@@ -28,7 +28,7 @@ public class Main {
             System.out.println("Please type one of the following:");
             System.out.println("          S : Run the sidewinder algorithm");
             System.out.println("          W : Run Wilson's algorithm");
-            System.out.println("     SW | WS: Run both algorithms");
+            System.out.println("    SW | WS : Run both algorithms");
             System.out.println("          T : Run performance tests for both algorithms");
             System.out.println("         TL : Run limited performance tests");
             System.out.println("<empty> | q : Quit the program");
@@ -155,48 +155,45 @@ public class Main {
 
             System.out.println("\n==============================\n");
 
-            long startmilli = System.currentTimeMillis();
-            long start = System.nanoTime();
+            long startmillisw = System.currentTimeMillis();
+            long startsw = System.nanoTime();
 
             swlab.sideWinder();
 
             // System calls 
-            long end = System.nanoTime() - start;
-            long endmilli = System.currentTimeMillis() - startmilli;
+            long endsw = System.nanoTime() - startsw;
+            long endmillisw = System.currentTimeMillis() - startmillisw;
 
             System.out.println("Maze after executing sidewinder: ");
 
             swlab.printLabyrinth();
-
-            System.out.println("\n=====================================\n"
-                    + "Time taken (nanoseconds):  " + end);
-            System.out.println("Time taken (milliseconds): " + endmilli);
         
             // =========================================================
             // Wilson time
             // =========================================================
             
             // "Zero out" the maze in between
-            swlab = new Labyrinth(span);
+            walab = new Labyrinth(span);
             
             System.out.println("\n=====================================\n");
 
-            startmilli = System.currentTimeMillis();
-            start = System.nanoTime();
+            long startmilliwa = System.currentTimeMillis();
+            long startwa = System.nanoTime();
 
-            swlab.wilsonsAlgorithm();
+            walab.wilsonsAlgorithm();
 
             // System calls 
-            end = System.nanoTime() - start;
-            endmilli = System.currentTimeMillis() - startmilli;
+            long endwa = System.nanoTime() - startwa;
+            long endmilliwa = System.currentTimeMillis() - startmilliwa;
 
             System.out.println("Maze after executing Wilson's algorithm: ");
 
-            swlab.printLabyrinth();
+            walab.printLabyrinth();
 
             System.out.println("\n=====================================\n"
-                    + "Time taken (nanoseconds):  " + end);
-            System.out.println("Time taken (milliseconds): " + endmilli);
+                             + String.format("%-25s", "Sidewinder)" + " vs. Wilson's");
+            System.out.println("Time taken (nanoseconds) :  " + String.format("%-15s", "endsw")+ " | " + String.format("%-15s", "endwa"));
+            System.out.println("Time taken (milliseconds): " + String.format("%-15s", "endmillisw") + " | " + String.format("%-15s", "endmilliwa));
         
         } catch (Exception e) {
             System.out.println("An unknown error occurred, quitting ...");
