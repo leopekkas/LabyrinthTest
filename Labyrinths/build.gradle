@@ -18,10 +18,11 @@ jacocoTestReport {
         html.enabled true
     }
     afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: 'src/main/java/tiralabra/Main.java',
-            'src/main/java/tiralabra/testing/**')
-        }))
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['src/main/java/tiralabra/Main.java',
+                    'src/main/java/tiralabra/testing/**'])
+        })
     }
 }
 
