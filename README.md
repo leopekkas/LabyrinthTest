@@ -3,7 +3,7 @@ Helsingin Yliopiston "Tietorakenteet ja Algoritmit -labratyö" kurssin projektik
 
 [Määrittelydokumentti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/maarittelydokumentti.md)  
 [Testikattavuusraportti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/testikattavuus.md)  
-[Toteutusdokumentti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/toteutusdokumentti.md)
+[Toteutusdokumentti](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/toteutusdokumentti.md)  
 [Tehokkuus- ja generointitapojen vertailu](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/algoritmienvertailu.md)
 
 ## Asentaminen
