@@ -43,26 +43,32 @@ public class Tester {
             
         for (int i = 0; i < scale; i++) {
             long[] timings = new long[5];
+            long[] timingsnano = new long[5];
             
             // Run the tests a few times to get an average
             for (int j = 0; j < timings.length; j++) {
                 Labyrinth lab = new Labyrinth(this.tests[i]);
                 long startmilli = System.currentTimeMillis();
+                long startnano = System.nanoTime();
                 lab.sideWinder();
                 long endmilli = System.currentTimeMillis();
+                long endnano = System.nanoTime();
                 timings[j] = endmilli - startmilli;
+                timingsnano[j] = endnano - startnano;
             }
             Arrays.sort(timings);
             long avg = timings[timings.length / 2];
+            long avgnano = timingsnano[timingsnano.length / 2];
             System.out.println("Size " + this.tests[i] + " took " + avg 
                     + " milliseconds to compute");
+            System.out.println("Size " + this.tests[i] + " took " + avgnano 
+                    + " nanoseconds to compute");
             
             if (i % 5 == 0) {
                 System.out.println("Timestep " + i + "/" + scale);
             }
         }
         
-        System.out.println("Image Saved");
         
         System.out.println("\n--------------------------------\n");
         System.out.println("Sidewinder performance tests done");
@@ -87,19 +93,26 @@ public class Tester {
             
         for (int i = 0; i < scale; i++) {
             long[] timings = new long[5];
+            long[] timingsnano = new long[5];
             
             // Run the tests a few times to get an average
             for (int j = 0; j < timings.length; j++) {
                 Labyrinth lab = new Labyrinth(this.tests[i]);
                 long startmilli = System.currentTimeMillis();
+                long startnano = System.nanoTime();
                 lab.wilsonsAlgorithm();
                 long endmilli = System.currentTimeMillis();
+                long endnano = System.nanoTime();
                 timings[j] = endmilli - startmilli;
+                timingsnano[j] = endnano - startnano;
             }
             Arrays.sort(timings);
             long avg = timings[timings.length / 2];
+            long avgnano = timingsnano[timingsnano.length / 2];
             System.out.println("Size " + this.tests[i] + " took " + avg 
                     + " milliseconds to compute");
+            System.out.println("Size " + this.tests[i] + " took " + avgnano 
+                    + " nanoseconds to compute");
             if (i % 5 == 0) {
                 System.out.println("Timestep " + i + "/" + scale);
             }
