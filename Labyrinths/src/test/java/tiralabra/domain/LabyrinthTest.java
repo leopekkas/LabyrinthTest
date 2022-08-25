@@ -59,6 +59,71 @@ public class LabyrinthTest {
     }
     
     /**
+     * Test the wilson algorithm by making sure all squares are accessible
+     */
+    @Test
+    public void testWilsons() {
+        int testspan = 20;
+        
+        Labyrinth testlab = new Labyrinth(20);
+        testlab.wilsonsAlgorithm();
+        Cell[][] cells = testlab.getMaze();
+        
+        Cell start = cells[0][0];
+        Cell end = cells[testlab.getHeight() - 1][testlab.getWidth() - 1];
+        
+        List<Cell> mazeCells = new List<>();
+        Boolean[][] visited = new Boolean[testlab.getHeight()][testlab.getWidth()];
+        int checked = 0;
+        int total = 20 * 20;
+
+        for (int i = 0; i < testlab.getHeight(); i++) {
+            for (int j = 0; j < testlab.getWidth(); j++) {
+                visited[i][j] = false;
+            }
+        }
+        
+        mazeCells.add(start);
+        while (mazeCells.getSize() > 0) {
+            Cell check = mazeCells.pop();
+            if (!visited[check.getY()][check.getX()]) {
+                visited[check.getY()][check.getX()] = true;
+                checked++;
+                
+                // Check if we can go "down"
+                if (check.getY() + 1 < testlab.getHeight() && !check.getWalls()[0]) {
+                    Cell bottomcell = testlab.getMaze()[check.getY() + 1][check.getX()];
+                    mazeCells.add(bottomcell);
+                }
+                // Check if we can go "up"
+                if (check.getY() - 1 >= 0) {
+                    Cell topcell = testlab.getMaze()[check.getY() - 1][check.getX()];
+                    // We need to check the bottom wall of the cell over us
+                    if (!topcell.getWalls()[0]) {
+                        mazeCells.add(topcell);
+                    }
+                
+                }
+                // Check if we can go "right"
+                if (check.getX() + 1 < testlab.getWidth() && !check.getWalls()[1]) {
+                    Cell rightcell = testlab.getMaze()[check.getY()][check.getX() + 1];
+                    mazeCells.add(rightcell);
+                }
+                // Check if we can go "left"
+                if (check.getX() - 1 >= 0) {
+                    Cell leftcell = testlab.getMaze()[check.getY()][check.getX() - 1];
+                    if (!leftcell.getWalls()[1]) {
+                        mazeCells.add(leftcell);
+                    }
+                }
+            }
+        }
+        
+        assertEquals(total, checked);
+        
+    }
+    
+    /**
      * !TODO Fails for now
      * Test the sidewinder function bu making sure all squares are accessible
      */
@@ -121,7 +186,7 @@ public class LabyrinthTest {
             }
         }
     
-        //assertEquals(total, checked);
+        assertEquals(total, checked);
     }
     
     /**

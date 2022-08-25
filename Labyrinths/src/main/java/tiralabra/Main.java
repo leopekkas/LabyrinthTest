@@ -112,16 +112,16 @@ public class Main {
         try {
             int span = Integer.valueOf(reader.nextLine());                    
  
-            Labyrinth swlab = new Labyrinth(span);
+            Labyrinth walab = new Labyrinth(span);
             System.out.println("Printing out the labyrinth format:\n");
-            swlab.printLabyrinth();
+            walab.printLabyrinth();
 
             System.out.println("\n=====================================\n");
 
             long startmilli = System.currentTimeMillis();
             long start = System.nanoTime();
 
-            swlab.wilsonsAlgorithm();
+            walab.wilsonsAlgorithm();
 
             // System calls 
             long end = System.nanoTime() - start;
@@ -129,7 +129,7 @@ public class Main {
 
             System.out.println("Maze after executing Wilson's algorithm: ");
 
-            swlab.printLabyrinth();
+            walab.printLabyrinth();
 
             System.out.println("\n=====================================\n"
                     + "Time taken (nanoseconds):  " + end);

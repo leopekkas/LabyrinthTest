@@ -97,7 +97,6 @@ public class Labyrinth {
         // Has a top neighbor
         if (current.getY() - 1 >= 0) {
             neighbors.add(new CellDir(this.maze[current.getY() - 1][current.getX()], 3));
-
         }
 
         return neighbors;
@@ -143,13 +142,24 @@ public class Labyrinth {
                     tovisit = true;
                 }
             }
+            
+            System.out.println("Moving to random coord: " + start.getX() + ", " + start.getY());
         
             // Check your neighbors, move to one of them and make a path
             // Until you encounter a cell we've visited already
             while (true) {
                 List<CellDir> neighbors = getNeighbors(currentCell);
+                //System.out.println("These are my neighbors");
+                /*
+                for (int i = 0; i < neighbors.getSize(); i++) {
+                    System.out.println(neighbors.getIndex(i).getCell().getX()
+                            + ", " + neighbors.getIndex(i).getCell().getY());
+                }
+                */
                 CellDir randomCellDir = neighbors.getIndex(rand.nextInt(neighbors.getSize()));
                 Cell randCell = randomCellDir.getCell();
+                //System.out.println("Random cell i picked from my neighbors: "
+                //            + randCell.getX() + ", " + randCell.getY());
                 int direction = randomCellDir.getDir();
 
                 path[currentCell.getY()][currentCell.getX()] = direction;
@@ -158,6 +168,7 @@ public class Labyrinth {
 
                 // Break if we hit a cell we've been to
                 if (visited[currentCell.getY()][currentCell.getX()]) {
+                    //System.out.println("Breaking");
                     break;
                 }
             }

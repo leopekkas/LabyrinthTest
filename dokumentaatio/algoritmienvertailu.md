@@ -1,4 +1,4 @@
-## Tehokkuustestit
+# Tehokkuustestit
 
 Ohjelman käyttöliittymä mahdollistaa tehokkuustestien suorittamisen ohjelman suorituksen aikana.
 Tehokkuustestauksesta vastaava luokka luo normaalitapauksessa 15 erisuuruista labyrinttia,
@@ -12,7 +12,7 @@ $$2(i + 1)^2 \text{ , jossa  } 1 \le i \le N$$ ja $$10 \le N \le 20$$ riippuen t
     Sidewinder on teoreettiselta aikavaativuudeltaan O(n²)
     Wilsonin algoritmi on teoreettiselta aikavaativuudeltaan O(n^n)
 
-### Saavutetut tulokset tehokkuustestauksessa:
+## Saavutetut tulokset tehokkuustestauksessa:
 
 Algoritmien vertailu keskenään suorituskyvyn perusteella ei ole kovin oleellista, sillä saavutetut
 tehokkuudet ovat hyvin vahvasti eri skaalaa jo pienillä labyrintin suuruuksilla (> 30x30):  
@@ -25,12 +25,15 @@ Sidewinderin aikaskaalautuvuus 2x2 - 400x400 kokoisten labyrinttien generoimises
 Wilsonin algoritmin aikaskaalautuvuus 2x2 - 400x400 kokoisten labyrinttien generoimisessa:
 <img src="img/waperformancefull.png" width="500"/>
 
+Kuten tuloksista huomataan: Wilsonin algoritmin suoritusaika on n. 100-kertainen 200x200 kokoisissa labyrinteissä, 
+ja n. 1000 kertainen labyrintin koon ollessa 400x400
 
 ## Labyrintin generointimenetelmien vertailu
 
 ### Samankaltaisuudet labyrinteissa
 
-Wilsonin ja Sidewinderin luomat labyrintit luovat labyrintteja, joissa jokaiseen ruutuun labyrintin sisällä pystyy kulkemaan, eikä "suljettuja alueita" synny labyrintin alueen sisälle.
+Wilsonin ja Sidewinderin luomat labyrintit ovat polkuja, joissa labyrintin sisällä jokaiseen ruutuun pystyy kulkemaan, 
+eikä "suljettuja alueita" synny labyrintin sisälle.
 
 ### Erot labyrinteissa
 
@@ -63,7 +66,7 @@ Sidewinderin luoma labyrintti luo polkuja vain ylöspäin, joten se ei pysty luo
 
 Tästä syystä luodun labyrintin ratkaisu on erityisen helppoa kuljettaessa labyrinttia "väärinpäin", eli uloskäynnistä lähtöruutuun, jos kuljetaan aina ylöspäin kun mahdollista.
 
-#### Wilson's Algorithm
+#### Wilsonin Algoritmi
 
 Wilsonin algoritmin luoma labyrintti on monimutkaisempi ja perustuu satunnaisista ruuduista johdettuihin polkuihin.
 Wilsonin algoritmi on suoritustehokkuudeltaan hyvin paljon hitaampi, mutta voi luoda hyvinkin monimutkaisia labyrinttirakenteita.

@@ -27,7 +27,7 @@ public class Cell {
      * @param x x-coordinate inside maze
      * @param y y-coordinate inside maze
      */
-    public Cell(int x, int y) {
+    public Cell(int y, int x) {
         if (x < 0 || y < 0) {
             System.out.println("Error: Initializing a cell with negative coordinates, exiting");
             return;
