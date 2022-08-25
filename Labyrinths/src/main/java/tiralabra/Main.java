@@ -173,7 +173,7 @@ public class Main {
             // =========================================================
             
             // "Zero out" the maze in between
-            walab = new Labyrinth(span);
+            Labyrinth walab = new Labyrinth(span);
             
             System.out.println("\n=====================================\n");
 
@@ -191,9 +191,12 @@ public class Main {
             walab.printLabyrinth();
 
             System.out.println("\n=====================================\n"
-                             + String.format("%-25s", "Sidewinder)" + " vs. Wilson's");
-            System.out.println("Time taken (nanoseconds) :  " + String.format("%-15s", "endsw")+ " | " + String.format("%-15s", "endwa"));
-            System.out.println("Time taken (milliseconds): " + String.format("%-15s", "endmillisw") + " | " + String.format("%-15s", "endmilliwa));
+                            + String.format("%37s", "Sidewinder") + String.format("%3s" ," vs. ") 
+                            + String.format("%3s","Wilson's"));
+            System.out.println("Time taken (nanoseconds) : " + String.format("%-12s", endsw) 
+                    + " | " + String.format("%-12s", endwa));
+            System.out.println("Time taken (milliseconds): " + String.format("%-12s", endmillisw)
+                    + " | " + String.format("%-12s", endmilliwa));
         
         } catch (Exception e) {
             System.out.println("An unknown error occurred, quitting ...");
