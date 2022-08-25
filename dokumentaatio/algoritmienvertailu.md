@@ -15,14 +15,15 @@ $$2(i + 1)^2 \text{ , jossa  } 1 \le i \le N$$ ja $$10 \le N \le 20$$ riippuen t
 ### Saavutetut tulokset tehokkuustestauksessa:
 
 Algoritmien vertailu keskenään suorituskyvyn perusteella ei ole kovin oleellista, sillä saavutetut
-tehokkuudet ovat hyvin vahvasti eri skaalaa jo pienillä labyrintin suuruuksilla (> 30x30):
-![tehokkuusvertaus](img/performanceN30.png)
+tehokkuudet ovat hyvin vahvasti eri skaalaa jo pienillä labyrintin suuruuksilla (> 30x30):  
+
+<img src="img/performanceN30.png" width="500"/>
 
 Sidewinderin aikaskaalautuvuus 2x2 - 400x400 kokoisten labyrinttien generoimisessa:
-![sidewinder tehokkuus](img/swperformancefull.png)
+<img src="img/swperformancefull.png" width="500"/>
 
 Wilsonin algoritmin aikaskaalautuvuus 2x2 - 400x400 kokoisten labyrinttien generoimisessa:
-![Wilson's tehokkuus](img/waperformancefull.png)
+<img src="img/waperformancefull.png" width="500"/>
 
 
 ## Labyrintin generointimenetelmien vertailu
