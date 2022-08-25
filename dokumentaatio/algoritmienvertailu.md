@@ -68,5 +68,21 @@ Tästä syystä luodun labyrintin ratkaisu on erityisen helppoa kuljettaessa lab
 
 #### Wilsonin Algoritmi
 
+Esimerkkitapaus Wilsonin algoritmin luomasta labyrintistä:
+
+    _____________________
+       __ |____  __ |  _|
+    |  _|  _| | | |____ |
+    |_|________  __ |___|
+    | |__ |__ | |__ |  _|
+    |  ___________| |  _|
+    |_____|  _| |  __ | |
+    |  __ |__  __ | |  _|
+    |__ |_| |  _|__ |__ |
+    |        ____ |__ |_|
+    |_|_|_|_|_____|______
+
+
 Wilsonin algoritmin luoma labyrintti on monimutkaisempi ja perustuu satunnaisista ruuduista johdettuihin polkuihin.
-Wilsonin algoritmi on suoritustehokkuudeltaan hyvin paljon hitaampi, mutta voi luoda hyvinkin monimutkaisia labyrinttirakenteita.
+Wilsonin algoritmi on suoritustehokkuudeltaan hyvin paljon hitaampi, mutta voi luoda hyvinkin monimutkaisia 
+labyrinttirakenteita (esimerkkiä suuremmissa tapauksissa).

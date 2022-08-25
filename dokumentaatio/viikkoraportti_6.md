@@ -2,3 +2,6 @@
 
 Kuudennella viikolla korjattu käyttöliittymää, lisätty dokumentaatiota tehokkuusvertailun ja 
 generointimetodien osalta. 
+
+Wilsonin algoritmi toimii normaalisti, sidewinderin ja wa:n testit menee läpi eli jokaisessa ruudussa pitäisi olla
+mahdollista käydä

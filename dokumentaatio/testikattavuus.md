@@ -6,8 +6,8 @@ Raportti ilmestyy polulle: `LabyrinthTest/Labyrinths/build/reports/jacoco/test/h
 Testikattavus valittaa etenkin `printCell()` ja `printLabyrinth()` funktioista, jotka jätin 
 tarkoituksella testaamatta. Funktiot vastaavat käyttöliittymästä.
 
-Wilsonin algoritmin testaus puuttuu ja sidewinderin testeissä on vielä jokin ongelma. 
-Muuten ohjelman testikattavuus on kattava.
+Sidewinderin ja Wilsonin algoritmin testaus perustuu siihen, että luodun labyrintin jokaisessa ruudussa on mahdollista
+käydä
 
 ## Koko ohjelma-alueen testikattavuus
 ![Ohjelma-alueen testikattavuus](img/labyrinths_kattavuus.png)
