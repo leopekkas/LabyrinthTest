@@ -11,17 +11,19 @@ Sisältää Main luokan, joka vastaa käyttöliittymän ominaisuuksista
 ### tiralabra.domain
 
 Sisältää Labyrinth ja Cell -luokat, joista Cell vastaa labyrinttien yksittäisten ruutujen
-sisältämistä tiedoista (koordinaatit, seinät) ja Labyrinth labyrinttien generoimisesta ja muokkaamisesta.
+sisältämistä tiedoista (koordinaatit, seinät) ja Labyrinth labyrinttien generoimisesta ja muokkaamisesta
 
 ### tiralabra.util
 
-Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa, sekä List -tietorakenteen, joka korvaa ArrayListin käytön.
+Sisältää apuluokan CellDir, jota hyödynnetään Wilsonin algoritmissa, sekä List -tietorakenteen, 
+joka korvaa ArrayListin käytön
 
 ### tiralabra.testing
 
-Sisältää testausluokan Tester, joka avustaa tehokkuustestien kirjaamisessa. 
+Sisältää testausluokan Tester, joka avustaa tehokkuustestien kirjaamisessa
+
 Käytännössä käyttöliittymän jatkofunktio, joka myös vastaa käyttöliittymän tietojen
-kirjoittamisesta.
+kirjoittamisesta
 
 ### Algoritmien suoritusvertailu
 

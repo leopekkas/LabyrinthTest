@@ -6,6 +6,9 @@ Raportti ilmestyy polulle: `LabyrinthTest/Labyrinths/build/reports/jacoco/test/h
 Testikattavus valittaa etenkin `printCell()` ja `printLabyrinth()` funktioista, jotka jätin 
 tarkoituksella testaamatta. Funktiot vastaavat käyttöliittymästä.
 
+Main-luokkaa ei ole testattu, mikä on suurin testikattavuudesta valittava osa-alue. Jätin Main 
+luokan testaamatta, sillä se vastaa käyttöliittymästä
+
 Sidewinderin ja Wilsonin algoritmin testaus perustuu siihen, että luodun labyrintin jokaisessa ruudussa on mahdollista
 käydä
 

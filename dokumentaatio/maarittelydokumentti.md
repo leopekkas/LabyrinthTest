@@ -25,7 +25,7 @@ Ohjelma kysyy Menuruudussa syötteen käyttäjältä (case insensitive):
 
               S : Run the sidewinder algorithm
               W : Run Wilson's algorithm
-         SW | WS: Run both algorithms
+        SW | WS : Run both algorithms
               T : Run performance tests for both algorithms
              TL : Run limited performance tests    
     <empty> | q : Quit the program
