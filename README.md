@@ -55,4 +55,5 @@ Testien tulokset:
 [Viikkoraportti 2](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_2.md)  
 [Viikkoraportti 3](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_3.md)  
 [Viikkoraportti 4](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_4.md)  
-[Viikkoraportti 5](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_5.md)
+[Viikkoraportti 5](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_5.md)  
+[Viikkoraportti 6](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/viikkoraportti_6.md)  
