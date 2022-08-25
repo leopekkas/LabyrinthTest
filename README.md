@@ -8,7 +8,7 @@ Helsingin Yliopiston "Tietorakenteet ja Algoritmit -labratyö" kurssin projektik
 
 ## Asentaminen
 
-Release [v0.5.0](https://github.com/leopekkas/LabyrinthTest/releases/tag/v0.5.0) on helpoin tapa ajaa ohjelma.
+Release [v1.0.0](https://github.com/leopekkas/LabyrinthTest/releases/tag/v1.0.0) on helpoin tapa ajaa ohjelma.
 Ohjelman voi ajaa lataamalla ja suorittamalla tiedoston `Labyrinths.jar`.
 
 Ohjelman voi myös rakentaa, ajaa ja testauttaa gradlen komennoilla:
