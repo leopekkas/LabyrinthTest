@@ -32,7 +32,7 @@ public class Tester {
      * 
      * @param scale Upper limit of the test cases
      */
-    public void testSidewinder(int scale) { 
+    public void testSidewinder(int scale, int verbosity) { 
         if (scale > this.tests.length) {
             System.out.println("Scale of tests too large, Nullpointers would occur");
             return;
@@ -59,13 +59,20 @@ public class Tester {
             Arrays.sort(timings);
             long avg = timings[timings.length / 2];
             long avgnano = timingsnano[timingsnano.length / 2];
-            System.out.println("Size " + this.tests[i] + " took " + avg 
-                    + " milliseconds to compute");
-            System.out.println("Size " + this.tests[i] + " took " + avgnano 
-                    + " nanoseconds to compute");
-            
-            if (i % 5 == 0) {
-                System.out.println("Timestep " + i + "/" + scale);
+            if (verbosity == 1) {
+                System.out.println("Size " + this.tests[i] + " took " + avg 
+                        + " milliseconds to compute");
+                System.out.println("Size " + this.tests[i] + " took " + avgnano 
+                        + " nanoseconds to compute");
+            } else {
+                System.out.println(this.tests[i] + ": " + avgnano + " ns");
+            }
+            int modn = 5;
+            if (verbosity == 0)  {
+                modn = 10;
+            }
+            if ((i + 1) % modn == 0) {
+                System.out.println("Timestep " + (i + 1) + "/" + scale);
             }
         }
         
@@ -81,7 +88,7 @@ public class Tester {
      * 
      * @param scale Upper limit of the test cases
      */
-    public void testWilsons(int scale) {
+    public void testWilsons(int scale, int verbosity) {
         if (scale > this.tests.length) {
             System.out.println("Scale of tests too large, Nullpointers would occur");
             return;
@@ -109,12 +116,20 @@ public class Tester {
             Arrays.sort(timings);
             long avg = timings[timings.length / 2];
             long avgnano = timingsnano[timingsnano.length / 2];
-            System.out.println("Size " + this.tests[i] + " took " + avg 
-                    + " milliseconds to compute");
-            System.out.println("Size " + this.tests[i] + " took " + avgnano 
-                    + " nanoseconds to compute");
-            if (i % 5 == 0) {
-                System.out.println("Timestep " + i + "/" + scale);
+            if (verbosity == 1) {
+                System.out.println("Size " + this.tests[i] + " took " + avg 
+                        + " milliseconds to compute");
+                System.out.println("Size " + this.tests[i] + " took " + avgnano 
+                        + " nanoseconds to compute");
+            } else {
+                System.out.println(this.tests[i] + ": " + avgnano + " ns");
+            }
+            int modn = 5;
+            if (verbosity == 0)  {
+                modn = 10;
+            }
+            if ((i + 1) % modn == 0) {
+                System.out.println("Timestep " + (i + 1) + "/" + scale);
             }
         }
         

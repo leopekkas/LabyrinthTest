@@ -28,3 +28,12 @@ kirjoittamisesta
 ### Algoritmien suoritusvertailu
 
 Algoritmien tehokkuus- ja generointivertailun löydät [erillisestä dokumentista](https://github.com/leopekkas/LabyrinthTest/blob/main/dokumentaatio/algoritmienvertailu.md)
+
+### Työn mahdolliset puutteet ja parannusehdotukset
+
+Ohjelmaa voisi laajentaa etenkin graafisella käyttöliittymällä. Muita laajennusehdotuksia 
+on esim. monisäikeistetyn ratkaisijan implementointi labyrintin generoimiseen, tai 
+labyrintin ratkaisija generoinnin jälkeen.
+
+Puutteena esimerkiksi se, että tällä hetkellä ohjelmassa on mahdollista tehdä vain 
+neliönmuotoisia labyrintteja.

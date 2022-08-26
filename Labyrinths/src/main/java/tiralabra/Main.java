@@ -18,6 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Tester testeri = new Tester();
+        int verbosity = 1;
         
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome! Here you can test out the Sidewinder algorithm"
@@ -25,35 +26,47 @@ public class Main {
         while (true) {            
         
             System.out.println("\n============  Main Menu  ============");
-            System.out.println("Please type one of the following:");
+            printIfVerbose("Please type one of the following:", verbosity);
             System.out.println("          S : Run the sidewinder algorithm");
             System.out.println("          W : Run Wilson's algorithm");
             System.out.println("    SW | WS : Run both algorithms");
             System.out.println("          T : Run performance tests for both algorithms");
             System.out.println("         TL : Run limited performance tests");
+            if (verbosity == 0) {
+                System.out.println("          V : Change verbosity to more verbose");
+            } else {
+                System.out.println("          V : Change verbosity to minimal");
+            }
             System.out.println("<empty> | q : Quit the program");
             System.out.println("=====================================");
             
             try {
                 String input = String.valueOf(reader.nextLine());
                 if (input.equalsIgnoreCase("S")) {
-                    execSidewinder();
+                    execSidewinder(verbosity);
                 } else if (input.equalsIgnoreCase("W")) {
-                    execWilsons();
+                    execWilsons(verbosity);
                 } else if (input.equalsIgnoreCase("SW") || input.equalsIgnoreCase("WS")) {
-                    execDouble();
+                    execDouble(verbosity);
                 
                 // Improve to produce charts    
                 } else if (input.equalsIgnoreCase("T")) {
-                    System.out.println("Executing performance tests for the algorithms");
-                    execTests(15);                    
+                    printIfVerbose("Executing performance tests for the algorithms", verbosity);
+                    execTests(15, verbosity);                    
                 } else if (input.equalsIgnoreCase("TL")) {
-                    System.out.println("Executing limited performance tests for the algorithms");
-                    execTests(10);                    
+                    printIfVerbose("Executing limited performance tests for the algorithms", 
+                            verbosity);
+                    execTests(10, verbosity);                    
                 } else if (input.equalsIgnoreCase("q") || input.equals("")) {
                     System.out.println("Quitting ... ");
                     System.out.println("Thank you for using the program!");
                     break;
+                } else if (input.equalsIgnoreCase("V")) {
+                    if (verbosity == 0) {
+                        verbosity = 1;
+                    } else {
+                        verbosity = 0;
+                    }
                 } else {
                     System.out.println("Unknown input, try again");
                 }
@@ -67,19 +80,24 @@ public class Main {
     
     /**
      * Executes the sidewinder algorithm for a labyrinth of specified size
+     * 
+     * @param verbosity Amount of output, 0 for minimal, 1 for max
      */
-    public static void execSidewinder() {
+    public static void execSidewinder(int verbosity) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Please specify the span (NxN) of"
+        System.out.println("Enter the span (NxN) of"
                 + " the maze as an integer");
         try {
             int span = Integer.valueOf(reader.nextLine());                    
         
             Labyrinth swlab = new Labyrinth(span);
-            System.out.println("Printing out the labyrinth format:\n");
-            swlab.printLabyrinth();
-
-            System.out.println("\n=====================================\n");
+            
+            
+            printIfVerbose("Printing out the labyrinth format:\n", verbosity);
+            if (verbosity == 1) {
+                swlab.printLabyrinth();
+            }
+            printIfVerbose("\n=====================================\n", verbosity);
 
             long startmilli = System.currentTimeMillis();
             long start = System.nanoTime();
@@ -105,18 +123,20 @@ public class Main {
     /**
      * Executes Wilson's algorithm for a labyrinth of specified size
      */
-    public static void execWilsons() {
+    public static void execWilsons(int verbosity) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Please specify the span (NxN) of"
+        System.out.println("Enter the span (NxN) of"
                 + " the maze as an integer");
         try {
             int span = Integer.valueOf(reader.nextLine());                    
  
             Labyrinth walab = new Labyrinth(span);
-            System.out.println("Printing out the labyrinth format:\n");
-            walab.printLabyrinth();
+            printIfVerbose("Printing out the labyrinth format:\n", verbosity);
+            if (verbosity == 1) {
+                walab.printLabyrinth();
+            }
 
-            System.out.println("\n=====================================\n");
+            printIfVerbose("\n=====================================\n", verbosity);
 
             long startmilli = System.currentTimeMillis();
             long start = System.nanoTime();
@@ -142,27 +162,29 @@ public class Main {
     /**
      * Executes the sidewinder and Wilson's algorithm for a labyrinth of specified size
      */
-    public static void execDouble() {
+    public static void execDouble(int verbosity) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Please specify the span (NxN) of"
+        System.out.println("Enter the span (NxN) of"
                 + " the maze as an integer");
         try {
             int span = Integer.valueOf(reader.nextLine());                    
         
             Labyrinth swlab = new Labyrinth(span);
-            System.out.println("Printing out the labyrinth format:\n");
-            swlab.printLabyrinth();
+            printIfVerbose("Printing out the labyrinth format:\n", verbosity);
+            
+            if (verbosity == 1) {
+                swlab.printLabyrinth();
+            }
 
-            System.out.println("\n==============================\n");
+            printIfVerbose("\n==============================\n", verbosity);
 
             long startmillisw = System.currentTimeMillis();
             long startsw = System.nanoTime();
-
+            
             swlab.sideWinder();
 
-            // System calls 
-            long endsw = System.nanoTime() - startsw;
-            long endmillisw = System.currentTimeMillis() - startmillisw;
+            final long endmillisw = System.currentTimeMillis() - startmillisw;
+            final long endsw = System.nanoTime() - startsw;
 
             System.out.println("Maze after executing sidewinder: ");
 
@@ -191,7 +213,7 @@ public class Main {
             walab.printLabyrinth();
 
             System.out.println("\n=====================================\n"
-                            + String.format("%37s", "Sidewinder") + String.format("%3s" ," vs. ") 
+                            + String.format("%37s", "Sidewinder") + String.format("%3s", " vs. ") 
                             + String.format("%3s","Wilson's"));
             System.out.println("Time taken (nanoseconds) : " + String.format("%-12s", endsw) 
                     + " | " + String.format("%-12s", endwa));
@@ -207,10 +229,20 @@ public class Main {
      * For executing performance tests for the algorithms
      * @param scale Scale of the testing
      */
-    public static void execTests(int scale) {
+    public static void execTests(int scale, int verbosity) {
         Tester labtester = new Tester();
-        labtester.testSidewinder(scale);
-        labtester.testWilsons(scale);        
+        labtester.testSidewinder(scale, verbosity);
+        labtester.testWilsons(scale, verbosity);        
+    }
+    
+    /**
+     * Helper function for printing according to verbosity
+     * @param output String to output (or not)
+     */
+    public static void printIfVerbose(String output, int verbosity) {
+        if (verbosity == 1) {
+            System.out.println(output);
+        }
     }
     
 }
