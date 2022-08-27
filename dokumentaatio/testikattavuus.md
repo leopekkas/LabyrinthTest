@@ -9,7 +9,7 @@ tarkoituksella testaamatta. Funktiot vastaavat käyttöliittymästä.
 Main-luokkaa ei ole testattu, mikä on suurin testikattavuudesta valittava osa-alue. Jätin Main 
 luokan testaamatta, sillä se vastaa käyttöliittymästä
 
-tiralabra.testing.Tester luokkaa ei ole testattu, sillä se vastaa vain tehokkuustestien suorittamisesta
+`tiralabra.testing.Tester` luokkaa ei ole testattu, sillä se vastaa vain tehokkuustestien suorittamisesta
 
 Sidewinderin ja Wilsonin algoritmin testaus perustuu siihen, että luodun labyrintin jokaisessa ruudussa on mahdollista käydä
 
