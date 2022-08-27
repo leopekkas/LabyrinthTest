@@ -29,8 +29,8 @@ public class Labyrinth {
         this.width = span;
         
         this.maze = new Cell[height][width];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
+        for (int j = 0; j < width; j++) {
+            for (int i = 0; i < height; i++) {
                 maze[i][j] = new Cell(i, j);
             }
         }
@@ -131,7 +131,7 @@ public class Labyrinth {
         // How many we've yet to visit
         int left = total;
         
-        // !TODO fix risk of infinite loop
+        // !TODO fix risk of infinite loop (probably)
         while (left > 0) {
             boolean tovisit = false;
             // Choose a new cell by random from where to make a path
@@ -234,8 +234,6 @@ public class Labyrinth {
      */
     public void createExit() {
         Cell exit = this.maze[this.height - 1][this.width - 1];
-
-        // Set the "left" wall open
         exit.setWalls(1, false);
     }
     

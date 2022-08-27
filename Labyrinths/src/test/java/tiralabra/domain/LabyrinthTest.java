@@ -59,7 +59,7 @@ public class LabyrinthTest {
     }
     
     /**
-     * Test the wilson algorithm by making sure all squares are accessible
+     * Test Wilson's algorithm by making sure all squares are accessible
      */
     @Test
     public void testWilsons() {
@@ -124,7 +124,6 @@ public class LabyrinthTest {
     }
     
     /**
-     * !TODO Fails for now
      * Test the sidewinder function bu making sure all squares are accessible
      */
     @Test

@@ -89,7 +89,6 @@ public class Cell {
      * Print out the cell 
      */
     public void printCell() {   
-        // Doesn't have walls around this cell
         if (!this.walls[0] && !this.walls[1]) {
             System.out.print("  ");
             return;

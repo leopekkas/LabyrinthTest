@@ -28,6 +28,7 @@ Ohjelma kysyy Menuruudussa syötteen käyttäjältä (case insensitive):
         SW | WS : Run both algorithms
               T : Run performance tests for both algorithms
              TL : Run limited performance tests    
+              V : Change verbosity to minimal
     <empty> | q : Quit the program
 
 
