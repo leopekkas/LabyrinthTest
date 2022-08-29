@@ -51,19 +51,18 @@ public class Tester {
                 long startmilli = System.currentTimeMillis();
                 long startnano = System.nanoTime();
                 lab.sideWinder();
-                long endmilli = System.currentTimeMillis();
                 long endnano = System.nanoTime();
+                long endmilli = System.currentTimeMillis();
                 timings[j] = endmilli - startmilli;
                 timingsnano[j] = endnano - startnano;
             }
             Arrays.sort(timings);
+            Arrays.sort(timingsnano);
             long avg = timings[timings.length / 2];
             long avgnano = timingsnano[timingsnano.length / 2];
             if (verbosity == 1) {
                 System.out.println("Size " + this.tests[i] + " took " + avg 
-                        + " milliseconds to compute");
-                System.out.println("Size " + this.tests[i] + " took " + avgnano 
-                        + " nanoseconds to compute");
+                        + " milliseconds, or " + avgnano + " nanoseconds to compute");
             } else {
                 System.out.println(this.tests[i] + ": " + avgnano + " ns");
             }
@@ -108,19 +107,18 @@ public class Tester {
                 long startmilli = System.currentTimeMillis();
                 long startnano = System.nanoTime();
                 lab.wilsonsAlgorithm();
-                long endmilli = System.currentTimeMillis();
                 long endnano = System.nanoTime();
+                long endmilli = System.currentTimeMillis();
                 timings[j] = endmilli - startmilli;
                 timingsnano[j] = endnano - startnano;
             }
             Arrays.sort(timings);
+            Arrays.sort(timingsnano);
             long avg = timings[timings.length / 2];
             long avgnano = timingsnano[timingsnano.length / 2];
             if (verbosity == 1) {
                 System.out.println("Size " + this.tests[i] + " took " + avg 
-                        + " milliseconds to compute");
-                System.out.println("Size " + this.tests[i] + " took " + avgnano 
-                        + " nanoseconds to compute");
+                        + " milliseconds, or " + avgnano + " nanoseconds to compute");
             } else {
                 System.out.println(this.tests[i] + ": " + avgnano + " ns");
             }
